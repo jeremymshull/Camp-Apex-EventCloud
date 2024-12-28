@@ -15,5 +15,12 @@ public with sharing class CAMPXSponsorTriggerHandler extends TriggerHandler {
     public override void beforeInsert() {
         CAMPXSponsorHelper.setEventStatus(newSponList);
         CAMPXSponsorHelper.addNullEmailError(newSponList);
+        CAMPXSponsorHelper.setTierBasedOnContribution(newSponList);
+        CAMPXSponsorHelper.validateSponsorEventBeforeAccepting(newSponList);
+    }
+
+    public override void beforeUpdate() {
+        CAMPXSponsorHelper.setTierBasedOnContribution(newSponList);
+        CAMPXSponsorHelper.validateSponsorEventBeforeAccepting(newSponList);
     }
 }
