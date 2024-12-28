@@ -16,9 +16,11 @@ public with sharing class CAMPXEventTriggerHandler extends TriggerHandler {
         // beforeInsert logic
         CAMPXEventHelper.setEventStatus(newEvtList);
         CAMPXEventHelper.setStatusChangedDate(newEvtList, oldEvtMap);
+        CAMPXEventHelper.updateNetRevenue(newEvtList);
     }
 
     public override void beforeUpdate() {
         CAMPXEventHelper.setStatusChangedDate(newEvtList, oldEvtMap);
+        CAMPXEventHelper.updateNetRevenue(newEvtList);
     }
 }

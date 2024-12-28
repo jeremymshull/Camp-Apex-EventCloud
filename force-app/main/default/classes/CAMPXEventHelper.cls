@@ -18,4 +18,15 @@ public with sharing class CAMPXEventHelper {
 
         }
     }
+
+    public static void updateNetRevenue(List<CAMPX__Event__c> newEvtList) {
+
+        for(CAMPX__Event__c evt : newEvtList) {
+            if (evt.CAMPX__GrossRevenue__c == null || evt.CAMPX__TotalExpenses__c == null) {
+                evt.CAMPX__NetRevenue__c = null;
+            } else {
+                evt.CAMPX__NetRevenue__c = evt.CAMPX__GrossRevenue__c - evt.CAMPX__TotalExpenses__c; 
+            }
+        }
+    }
 }

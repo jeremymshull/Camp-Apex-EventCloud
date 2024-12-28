@@ -22,5 +22,6 @@ public with sharing class CAMPXSponsorTriggerHandler extends TriggerHandler {
     public override void beforeUpdate() {
         CAMPXSponsorHelper.setTierBasedOnContribution(newSponList);
         CAMPXSponsorHelper.validateSponsorEventBeforeAccepting(newSponList);
+        
     }
 }
